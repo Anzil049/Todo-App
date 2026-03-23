@@ -5,8 +5,8 @@ const Todo = require('../models/Todo');
 
 const getAllTodos = async (req, res) => {
     try {
-        //Sort by newest first using -1 on created at
-        const todos = await Todo.find().sort({ createdAt: -1 });
+        //Sort by oldest first using 1 on created at
+        const todos = await Todo.find().sort({ createdAt: 1 });
         res.json({ success: true, data: todos });
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });

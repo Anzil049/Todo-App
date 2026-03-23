@@ -23,7 +23,7 @@ const useTodos = () => {
 
     const addTodo = async (title) => {
         const res = await todoService.create(title);
-        setTodos(prev => [res.data.data, ...prev]);
+        setTodos(prev => [...prev, res.data.data]);
     };
 
     const toggleTodo = async (id,completed) => {
